@@ -1,34 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
-      < div >
-      < Header / >
-      < Technologies / >
-      < /div>);
-}
+      <div className='app-wrapper'>
+          <Header/>
+          <Navbar/>
+          <Profile/>
+      </div>
+  );
+};
 
-  const Technologies =()=> {
-        return (
-    <div>
-      <ul>
-        <li>html</li>
-        <li>css</li>
-        <li>js</li>
-      </ul>
-    </div>
-    );
-  }
-
-const Header = () => {
-    return ( <div>
-                <a href='#'>Home</a>
-                <a href='#'>News</a>
-                <a href='#'>Messages</a>
-            </div>);
-}
 
 
 export default App;
