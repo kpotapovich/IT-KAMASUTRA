@@ -6,27 +6,31 @@ import Profile from "./components/Profile/Profile";
 import Message from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import {BrowserRouter, Route} from "react-router-dom";
+import {addPost} from "./redax/state";
 
 
 const App = (props) => {
 
   return (
-      <BrowserRouter>
-      <div className='app-wrapper'>
+      <div className ='app-wrapper'>
           <Header/>
           <Navbar/>
-          <div class='app-wrapper-content'>
+          <div className ='app-wrapper-content'>
              {/* <Route  path="/dialogs" component={Message}/>*/}
              {/*<Route path="/profile" component={Profile}/>*/}
              {/* <Route path="/news" component={News}/>*/}
               {/*<Route path="/music" component={Music}/>*/}
               {/*<Route path="/settings" component={Settings}/>*/}
 
-              <Route path="/dialogs" render={ () => <Message  dialogs={props.dialogs} messages={props.messages}/> } />
-              <Route path="/profile" render={ () => <Profile posts={props.posts} /> } />
+              <Route path="/dialogs"
+                     render = { () => <Message
+                         state = {props.state.dialogsPage}/> } />
+              <Route path="/profile"
+                     render = { () => <Profile
+                         state = {props.state.profilePage}
+                         addPost={props.addPost} /> } />
           </div>
       </div>
-      </BrowserRouter>
   );
 };
 
