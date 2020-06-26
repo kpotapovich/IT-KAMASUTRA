@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
     _state:{
         profilePage: {
@@ -32,28 +35,39 @@ let store = {
     getState() {
         return this._state;
     },
-   _callSubscriber () {
-        console.log('state');
-    },
-     addPost ()  {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likes: 0,
-        };
-         this._state.profilePage.posts.push(newPost);
-         this._state.profilePage.newPostText='';
-         this._callSubscriber (this._state);
-    },
-    updateNewPostText (newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber ( this._state);
-    },
     subscribe (observer) {
         this._callSubscriber = observer;
         // observer - наблюдалель это патерна поход на publisher-subscriber
     },
-};
+
+    _callSubscriber () {
+        console.log('state');
+    },
+
+    dispatch(action) {  // {type: 'ADD_POST'}
+            if (action.type === ADD_POST) {
+                let newPost = {
+                    id: 5,
+                    message: this._state.profilePage.newPostText,
+                    likes: 0,
+                };
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state);
+            } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+                this._state.profilePage.newPostText = action.newText;
+                this._callSubscriber(this._state);
+
+            }
+        },
+
+}
+
+export const addPostActionCreator = () => ({ type: ADD_POST })
+
+export const updateNewPostTextActionCreator = (text) =>
+    ({ type:{type: UPDATE_NEW_POST_TEXT, newText: text} })
+
 
 export default store;
 window.state = store;
