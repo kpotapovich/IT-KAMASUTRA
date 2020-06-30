@@ -6,11 +6,13 @@ import Profile from "./components/Profile/Profile";
 import Message from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import {BrowserRouter, Route} from "react-router-dom";
-import {addPost} from "./redax/state";
+import {addPost} from "./redax/store";
+import MyPostsContainer from "./components/Profile/MyPosts/Post/MyPostsContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
-
+debugger;
   return (
       <div className ='app-wrapper'>
           <Header/>
@@ -18,12 +20,9 @@ const App = (props) => {
           <div className ='app-wrapper-content'>
 
               <Route path="/dialogs"
-                     render = { () => <Message
-                         state = {props.state.dialogsPage}/> } />
+                     render = { () => <DialogsContainer store={props.store}/> } />
               <Route path="/profile"
-                     render = { () => <Profile
-                         profilePage = {props.state.profilePage}
-                         dispatch={props.dispatch}/> } />
+                     render = { () => <Profile store={props.store}/> } />
           </div>
       </div>
   );
