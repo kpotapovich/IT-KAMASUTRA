@@ -3,11 +3,8 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Message from "./components/Dialogs/Dialogs";
-import News from "./components/News/News";
+
 import {BrowserRouter, Route} from "react-router-dom";
-import {addPost} from "./redax/store";
-import MyPostsContainer from "./components/Profile/MyPosts/Post/MyPostsContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
@@ -20,9 +17,9 @@ debugger;
           <div className ='app-wrapper-content'>
 
               <Route path="/dialogs"
-                     render = { () => <DialogsContainer store={props.store}/> } />
+                     render = { () => <DialogsContainer /> } />
               <Route path="/profile"
-                     render = { () => <Profile store={props.store}/> } />
+                     render = { () => <Profile /> } />
           </div>
       </div>
   );
