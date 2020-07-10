@@ -24,6 +24,7 @@ const MyPosts = (props) => {
     return (
         <div className={s.postsBlock}>
             <h3>my posts</h3>
+
             <div>
                 <div>
                    <textarea onChange = {onPostChange} ref = {newPostElement}
