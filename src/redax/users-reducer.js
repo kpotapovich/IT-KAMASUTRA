@@ -12,7 +12,7 @@ let initialState =  {
     totalUsersCount:1,
     currentPage:1,
     isFetching: true,
-    followingInProgress: false
+    followingInProgress: []
 
 };
 
@@ -73,7 +73,7 @@ export const unFollow = (userId) => ({ type: UNFOLLOW , userId})
 export const setUsers = (users) => ({ type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage})
 export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count:totalUsersCount})
-export const setIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING,  isFetching})
-export const setFollowingProgress = (isFetching) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS,  isFetching})
+export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING,  isFetching})
+export const setFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS,  isFetching, userId})
 
 export default  usersReducer;

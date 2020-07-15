@@ -6,3 +6,20 @@
 .selectedPage {
    font-weight: bold;
 }
+
+.over {
+    background-color: floralwhite;
+    overflow-x: scroll;
+    width: 300px;
+}
+
+.userText {
+    display: flex;
+    margin: 10px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.location{
+    margin: 25px;
+}
