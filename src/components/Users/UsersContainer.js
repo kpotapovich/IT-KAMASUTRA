@@ -1,8 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    follow, setCurrentPage,toggleIsFetching,
-    setUsers, setTotalUsersCount, unFollow, setFollowingProgress
+    follow, setCurrentPage, unfollow, setFollowingProgress,getUsers
 } from "../../redax/users-reducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -11,28 +10,13 @@ import {UsersAPI as usersAPI} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
-
-
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-
-       usersAPI.getUsers(this.props.currentPage, this.props.pageSize ).then(data => {
-                this.props.toggleIsFetching (false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
+        this.props.getUsers(pageNumber, this.props.pageSize);
 
-        usersAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-            });
     }
     render() {
         return <>
@@ -44,7 +28,6 @@ class UsersContainer extends React.Component {
                      users={this.props.users}
                      follow={this.props.follow}
                      unfollow={this.props.unFollow}
-                     setFollowingProgress={this.props.setFollowingProgress}
                      followingInProgress={this.props.followingInProgress}
 
 
@@ -66,7 +49,7 @@ let mapStateToProps = (state) => {
     }
 }
 
+
 export default  connect(mapStateToProps,
-    {follow, unFollow, setUsers, setCurrentPage,setFollowingProgress,
-        setTotalUsersCount, toggleIsFetching,
-   })(UsersContainer);
+    {follow, unfollow,
+       setCurrentPage,setFollowingProgress,getUsers})(UsersContainer);

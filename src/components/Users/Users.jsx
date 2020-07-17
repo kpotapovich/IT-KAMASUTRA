@@ -3,6 +3,7 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/img/user.png";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {UsersAPI as usersAPI} from "../../api/api";
 
 let Users = (props) => {
 
@@ -38,41 +39,14 @@ let Users = (props) => {
                    </div>
                   <div>
                       {u.followed
-                          ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                 onClick={() => {
-                                   props.setFollowingProgress(true, u.id);
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                    withCredentials: true,
-                                    headers: {
-                                       "API-KEY": "86318358-ffab-4e86-a402-63aacef8b734"
-                                    }
-                              })
-                                  .then(response => {
-                                      if (response.data.resultCode == 0) {
-                                          props.unfollow(u.id)
-                                      }
-                                      props.setFollowingProgress(false, u.id);
+                      ? <button disabled={props.followingInProgress
+                              .some(id => id === u.id)}
+                                onClick={() => { props.unFollow(u.id);
+                          }}>Unfollow</button>
 
-                                  });
-                          }}>Unfollow </button>
-
-
-
-                          : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                              props.setFollowingProgress(true, u.id);
-                              axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                  withCredentials: true,
-                                  headers: {
-                                      "API-KEY": "86318358-ffab-4e86-a402-63aacef8b734"
-                                  }
-                              })
-                                  .then(response => {
-                                      if (response.data.resultCode == 0) {
-                                          props.follow(u.id)
-                                      }
-                                      props.setFollowingProgress(false, u.id);
-
-                                  });
+                      : <button disabled={props.followingInProgress
+                              .some(id => id === u.id)}
+                                onClick={() => { props.follow( u.id);
                           }}>Follow</button>
                       }
                   </div>
