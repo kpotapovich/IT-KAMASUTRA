@@ -2,6 +2,7 @@ import React from "react";
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
+import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
 
@@ -20,6 +21,9 @@ let state = props.dialogsPage;
        props.updateNewMessageBody(body);
 
     }
+
+
+   if (!props.isAuth) return  <Redirect to={"/Login"}/>; //не показывает страницу без регестрации
 
     return (
         <div className={s.dialogs}>
