@@ -23,3 +23,16 @@
 .location{
     margin: 25px;
 }
+
+.login {
+    margin: 10px;
+}
+.login input {
+    padding: 5px;
+    margin: 10px;
+
+}
+
+.login button {
+    margin: 10px 0px 10px 70px;
+}
