@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/img/user.png";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {UsersAPI as usersAPI} from "../../api/api";
+
 
 let Users = (props) => {
 
@@ -25,7 +24,8 @@ let Users = (props) => {
                          onClick={(e) => {
                              props.onPageChanged(p); }}>{p}
                     </span>)
-                })}
+                })
+            };
 
         </div>
            {props.users.map(u =>
