@@ -8,26 +8,28 @@ let initialState =  {
     posts: [
         {id: 1, message: 'Hi, how are you?', likes: 0},
         {id: 2, message: 'It\'s my first post', likes: 25},
-        {id: 2, message: 'i girl ', likes: 25},
-        {id: 2, message: 'It\'s my first post', likes: 25},
+        {id: 3, message: 'i girl ', likes: 25},
+        {id: 4, message: 'It\'s my first post', likes: 25},
     ],
     profile: null,
-    status:""
+    status:"",
+    newPostText: ""
 };
 
 const profileReducer = (state = initialState  , action) => {
        switch (action.type) {
            case ADD_POST:
+
                let newPost = {
-                   id: 5,
-                   message: action.newPostText,
+                   id:state.posts.length + 1 ,
+                   message: action.newPostForm,
                    likes: 0,
                };
 
               return {
                    ...state,
-                   posts: [...state.posts, newPost,],
-                   newPostText: ''
+                   posts: [ newPost, ...state.posts],
+                   newPostText: ""
                };
 
            case SET_STATUS: {

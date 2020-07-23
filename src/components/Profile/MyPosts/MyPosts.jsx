@@ -14,36 +14,45 @@ const maxLength10 = maxLengthCreator(10);
                        placeholder={"Post message"}
                            validate={[required,  maxLength10]} />
                 </div>
-                <div>
-                    <button>Add post</button>
+                <div className="nav">
+                    <input type="submit" placeholder={"Add post"} />
                 </div>
             </form>;
     }
 
     let AddNewPostFormRedux = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm)
 
-    const MyPosts = (props) => {
-        let  postsElements =
-            props.posts.map(p => <Post message={p.message} likes={p.likes}/>
-        );
+class MyPosts extends React.Component {
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps != this.props || nextProps != this.state ;
+    // }
+
+    render() {
+        let postsElements =
+            this.props.posts.map
+            (p => <Post key={p.id} message={p.message} likes={p.likes}/>
+            );
+        //добавить кей
 
         let newPostElement = React.createRef();
 
         let onAddPost = (values) => {
-            props.addPost(values.newPostText);
+            this.props.addPost(values.newPostText);
         };
 
 
-    return (
-        <div className={s.postsBlock}>
-            <h3>my posts</h3>
-            <AddNewPostFormRedux onSubmit={onAddPost}/>
-            <div className={s.posts}>
-                {postsElements}
+        return (
+            <div className={s.postsBlock}>
+                <h3>my posts</h3>
+                <AddNewPostFormRedux onSubmit={onAddPost}/>
+                <div className={s.posts}>
+                    {postsElements}
+                </div>
             </div>
-        </div>
 
-    )
-};
+        )
+    }
+}
 
 export default MyPosts;
