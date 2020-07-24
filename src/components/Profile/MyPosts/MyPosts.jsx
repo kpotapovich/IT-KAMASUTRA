@@ -22,17 +22,11 @@ const maxLength10 = maxLengthCreator(10);
 
     let AddNewPostFormRedux = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm)
 
-class MyPosts extends React.Component {
+const MyPosts = React.memo (props => {
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps != this.props || nextProps != this.state ;
-    // }
-
-    render() {
         let postsElements =
             this.props.posts.map
-            (p => <Post key={p.id} message={p.message} likes={p.likes}/>
-            );
+            (p => <Post key={p.id} message={p.message} likes={p.likes}/>);
         //добавить кей
 
         let newPostElement = React.createRef();
@@ -44,7 +38,7 @@ class MyPosts extends React.Component {
 
         return (
             <div className={s.postsBlock}>
-                <h3>my posts</h3>
+                <h3>My post</h3>
                 <AddNewPostFormRedux onSubmit={onAddPost}/>
                 <div className={s.posts}>
                     {postsElements}
@@ -53,6 +47,6 @@ class MyPosts extends React.Component {
 
         )
     }
-}
+)
 
 export default MyPosts;
