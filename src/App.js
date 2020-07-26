@@ -13,6 +13,7 @@ import {initializeApp, initializedSuccess} from "./redax/app-reducer";
 import Preloader from "./components/Common/Preloader/Preloder";
 
 
+
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp();
@@ -38,7 +39,7 @@ class App extends React.Component {
                     <Route path='/users'
                            render={() => <UsersContainer/>}/>
 
-                    <Route path='/Login'
+                    <Route path='/login'
                            render={() => <LoginPage/>}/>
                 </div>
             </div>

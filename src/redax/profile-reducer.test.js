@@ -1,4 +1,4 @@
-import profileReducer, {addPostActionCreator} from "./profile-reducer";
+import profileReducer, {addPostActionCreator, deletePost} from "./profile-reducer";
 import {render} from "@testing-library/react";
 import App from "../App";
 import React from "react";
@@ -12,8 +12,7 @@ let state =  {
     ],
 };
 
-
-it('message of new should be correct', () => {
+it('length of new should be correct', () => {
     //1. готовим исходные данные test data
     let action = addPostActionCreator("Hello friends")
 
@@ -21,10 +20,10 @@ it('message of new should be correct', () => {
     let newState = profileReducer(state,action);
 
     //3. expectation проверка и добовление текста
-   expect(newState.posts.length).toBe(5) ;
+   expect(newState.posts.length).toBe(5);
 });
 
-it('length of posts should be incremented', () => {
+it('message of posts should be incremented', () => {
     //1. готовим исходные данные test data
     let action = addPostActionCreator("Hello friends")
 
@@ -32,7 +31,7 @@ it('length of posts should be incremented', () => {
     let newState = profileReducer(state,action);
 
     //3. expectation проверка и добовление текста
-    expect(newState.posts.length).toBe(5) ;
+    expect(newState.posts.length).toBe(5);
 });
 
 it('after deleting length of messages should be decrement', () => {
@@ -43,7 +42,7 @@ it('after deleting length of messages should be decrement', () => {
     let newState = profileReducer(state,action);
 
     //3. expectation проверка и добовление текста
-    expect(newState.posts.length).toBe(3) ;
+    expect(newState.posts.length).toBe(3);
 });
 
 it('after deleting length  shouldn`t be decrement if id is incorrect', () => {
@@ -54,7 +53,7 @@ it('after deleting length  shouldn`t be decrement if id is incorrect', () => {
     let newState = profileReducer(state,action);
 
     //3. expectation проверка и добовление текста
-    expect(newState.posts.length).toBe(3) ;
+    expect(newState.posts.length).toBe(3);
 });
 
 

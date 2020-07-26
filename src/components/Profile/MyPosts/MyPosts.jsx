@@ -22,23 +22,23 @@ const maxLength10 = maxLengthCreator(10);
 
     let AddNewPostFormRedux = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm)
 
-const MyPosts = React.memo (props => {
-
+const MyPosts = React.memo(props => {
         let postsElements =
-            this.props.posts.map
-            (p => <Post key={p.id} message={p.message} likes={p.likes}/>);
+           props.posts.map
+            (p => <Post key={p.id} message={p.message} likes={p.likes}/>
+            );
         //добавить кей
 
         let newPostElement = React.createRef();
 
         let onAddPost = (values) => {
-            this.props.addPost(values.newPostText);
+            props.addPost(values.newPostText);
         };
 
 
         return (
             <div className={s.postsBlock}>
-                <h3>My post</h3>
+                <h3>My posts</h3>
                 <AddNewPostFormRedux onSubmit={onAddPost}/>
                 <div className={s.posts}>
                     {postsElements}
@@ -46,7 +46,7 @@ const MyPosts = React.memo (props => {
             </div>
 
         )
-    }
-)
+})
+
 
 export default MyPosts;

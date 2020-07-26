@@ -7,7 +7,7 @@ const DELETE_POST = 'DELETE_POST';
 
 let initialState =  {
     posts: [
-        {id: 1, message: 'Hi, how are you?', likes: 0},
+        {id: 1, message: 'Hi, how are you?', likes: 14},
         {id: 2, message: 'It\'s my first post', likes: 25},
         {id: 3, message: 'i girl ', likes: 25},
         {id: 4, message: 'It\'s my first post', likes: 25},
@@ -46,7 +46,6 @@ const profileReducer = (state = initialState  , action) => {
            case  DELETE_POST:
                return {...state, posts: state.posts.filter(p => p.id != action.postId)}
 
-
            default:
                return state;
 
@@ -58,8 +57,6 @@ export const addPostActionCreator = (newPostForm) => ({ type: ADD_POST, newPostF
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const deletePost = (postId) => ({ type: DELETE_POST, postId })
-
-
 
 
 export const getUserProfile = (userId) => (dispatch) => {
