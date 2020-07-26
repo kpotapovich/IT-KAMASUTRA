@@ -9,7 +9,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {initializeApp, initializedSuccess} from "./redax/app-reducer";
+import {initializeApp} from "./redax/app-reducer";
 import Preloader from "./components/Common/Preloader/Preloder";
 
 
@@ -29,7 +29,6 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-
                     <Route path='/dialogs'
                            render={() => <DialogsContainer/>}/>
 

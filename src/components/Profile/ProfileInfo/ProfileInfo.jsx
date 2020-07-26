@@ -6,21 +6,20 @@ import ProfileStatusWithHocks from "./ProfileStatusWithHocks";
 
 
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus }) => {
+    if (!profile) {
         return <Preloader/>
     }
     return (
         <div>
-
             <div>
                 <img
                     src='https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg'/>
             </div>
               <div className={s.descriptionBlock}>
-                 <img src={props.profile.photos.large}/>
-                      <ProfileStatusWithHocks status={props.status}
-                                     updateStatus={props.updateStatus}/>
+                 <img src={profile.photos.large}/>
+                      <ProfileStatusWithHocks status={status}
+                                     updateStatus={updateStatus}/>
               </div>
         </div>
     )

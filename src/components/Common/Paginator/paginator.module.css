@@ -1,0 +1,9 @@
+.over {
+    background-color: floralwhite;
+    overflow-x: scroll;
+    width: 300px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
