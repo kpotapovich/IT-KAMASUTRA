@@ -1,5 +1,6 @@
 import {UsersAPI as usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/objiect-helpers";
+import {getUsers} from "./users-selectors";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -98,15 +99,18 @@ const  followUnFollowFlow = async (dispatch,userId,apiMethod,actionCreator) => {
 }
 
 export const follow = (userId) => {
-    return async (dispatch) => {
-        followUnFollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), followSuccess);
+    return async (dispatch,getState) => {
+       await followUnFollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), followSuccess);
+        dispatch( requestUsers( getState().usersPage.currentPage, getState().usersPage.pageSize) );
     }
 }
 
 export const unfollow = (userId) => {
-    return async (dispatch) => {
-        followUnFollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), unFollowSuccess);
+    return async (dispatch,getState) => {
+       await followUnFollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), unFollowSuccess);
+        dispatch( requestUsers( getState().usersPage.currentPage, getState().usersPage.pageSize) );
     }
+
 }
 
 export default  usersReducer;

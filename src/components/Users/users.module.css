@@ -15,9 +15,11 @@
     margin: 10px;
     text-align: center;
     padding-bottom: 30px;
+    width: 225px;
 }
 
 .location{
+    word-break:break-all;
     margin: 25px;
 }
 
@@ -32,13 +34,25 @@
 }
 
 .login button {
-    margin: 10px 0px 10px 35px;
+    margin: 10px;
     padding: 10px 40px 10px 40px;
 }
 .login button:hover{
-    background-color: cadetblue;
-}
-.logins{
-    margin: 10px 0px 10px 60px;
+    background-color: deeppink;
 }
 
+
+.users {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.color{
+    border: solid 2px deeppink;
+    text-align: center;
+    color: deeppink;width: 500px;
+    margin: 20px;
+}

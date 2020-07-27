@@ -12,8 +12,14 @@
     font-size: 20px;
     padding: 15px;
 
+
 }
 
 .loginBlock a {
     color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    color: deeppink;
+    margin: 20px;
+
 }

@@ -49,12 +49,13 @@ const Login = (props) => {
         return <Redirect to={"/profile"}/>
     }
 
-    return <div>
-        <h1 className={styles.logins}>Login</h1>
+    return <div className={styles.color}>
+        <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 };
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 });
+
 export default connect(mapStateToProps, {login})(Login);

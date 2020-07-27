@@ -31,14 +31,14 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                   </div>
               </span>
             <span className={styles.location}>
-                    <span>
-                        <div>{user.name}</div>
-                        <div>{user.status}</div>
-                    </span>
-                    <span>
-                        <div>{user.id}</div>
-                    </span>
+                <span>
+                    <div>{user.name}</div>
+                    <div>{user.status}</div>
                 </span>
+                <span>
+                    <div>{user.id}</div>
+                </span>
+            </span>
         </div>)
 
 }
