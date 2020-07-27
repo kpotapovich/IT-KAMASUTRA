@@ -5,7 +5,8 @@ import {NavLink} from "react-router-dom";
 import Paginator from "../Common/Paginator/paginator";
 
 
-let User = ({user, followingInProgress, unFollow, follow}) => {
+let User = ({user, followingInProgress, unfollow, follow}) => {
+
     return (
         <div className={styles.userText}>
                 <span>
@@ -19,7 +20,7 @@ let User = ({user, followingInProgress, unFollow, follow}) => {
                       {user.followed
                           ? <button disabled={followingInProgress
                               .some(id => id === user.id)}
-                                    onClick={ () => {unFollow(user.id) }}>
+                                    onClick={ () => {unfollow(user.id) }}>
                               Unfollow</button>
 
                           : <button disabled={followingInProgress
@@ -36,7 +37,6 @@ let User = ({user, followingInProgress, unFollow, follow}) => {
                     </span>
                     <span>
                         <div>{user.id}</div>
-                        <div>{'user.location.city'}</div>
                     </span>
                 </span>
         </div>)

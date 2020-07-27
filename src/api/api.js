@@ -23,7 +23,7 @@ export  const UsersAPI = {
       return   instance.post(`follow/${userId}`)
     },
 
-    unFollow(userId){
+    unfollow(userId){
        return instance.delete(`follow/${userId}`)
 
     },

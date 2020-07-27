@@ -23,6 +23,7 @@
 
 .login {
     margin: 10px;
+
 }
 .login input {
     padding: 5px;
@@ -31,5 +32,13 @@
 }
 
 .login button {
-    margin: 10px 0px 10px 70px;
+    margin: 10px 0px 10px 35px;
+    padding: 10px 40px 10px 40px;
 }
+.login button:hover{
+    background-color: cadetblue;
+}
+.logins{
+    margin: 10px 0px 10px 60px;
+}
+

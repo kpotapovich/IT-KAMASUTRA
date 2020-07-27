@@ -50,7 +50,7 @@ const Login = (props) => {
     }
 
     return <div>
-        <h1>Login</h1>
+        <h1 className={styles.logins}>Login</h1>
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 };
