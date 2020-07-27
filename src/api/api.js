@@ -6,7 +6,8 @@ const instance = axios.create({
     withCredentials: true,
     baseURL: `https://social-network.samuraijs.com/api/1.0/`,
     headers: {
-      "API-KEY": "468cea50-5173-40cd-9a0c-dba0e1de7684"
+      "API-KEY": "797cb4d2-9594-4045-9630-12b624d6debb"
+        // "API-KEY": "d7e2cd72-d7ea-47d6-9156-962002bb73c6"
      }
 });
 
@@ -27,7 +28,7 @@ export  const UsersAPI = {
 
     },
     getProfile(userId){
-        console.warn('используется устаревший метод profileAPI');;
+        console.warn('используется устаревший метод profileAPI');
        return  profileAPI.getProfile(userId);
 
     },
@@ -47,15 +48,17 @@ export  const profileAPI = {
     },
     savePhoto(photoFile) {
        const formData = new FormData();
-        formData.append("image",photoFile)
+        formData.append("image",photoFile);
 
         return  instance.put(`profile/photo`,formData, {
             headers:{
                 'Content-Type': 'multipart/form-data'
             }
         });
+    },
+    saveProfile(profile){
+        return  instance.put(`profile`, profile);
     }
-
 }
 
 export  const authAPI = {
