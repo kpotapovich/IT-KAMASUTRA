@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./paginator.module.css";
 import userPhoto from "../../../assets/img/user.png";
-import {NavLink} from "react-router-dom";
+
 
 
 
@@ -17,16 +17,11 @@ let Paginator = ({totalUsersCount,pageSize,currentPage,onPageChanged}) => {
     return (
         <div className ={styles.over}>
             {pages.map(p => {
-                return (
-                    <span
-                        key={p}
+                return <span key={p}
                         className = {currentPage === p ? styles.selectedPage:''}
                         onClick={(e) => {
                             onPageChanged(p); }}>{p}
-                    </span>)
-            })
-            };
-
+                    </span>})};
         </div>
     )
 }

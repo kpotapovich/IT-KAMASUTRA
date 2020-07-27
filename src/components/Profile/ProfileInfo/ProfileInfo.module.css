@@ -4,3 +4,6 @@
 .nav{
     background-color: firebrick;
 }
+.mainPhoto {
+    max-width: 200px;
+}
