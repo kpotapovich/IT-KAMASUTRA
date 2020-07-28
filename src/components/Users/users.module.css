@@ -52,7 +52,10 @@
 
 .color{
     border: solid 2px deeppink;
+    max-width: 500px;
     text-align: center;
-    color: deeppink;width: 500px;
+    color: deeppink;
+    width: 500px;
+    height: 350px;
     margin: 20px;
 }
