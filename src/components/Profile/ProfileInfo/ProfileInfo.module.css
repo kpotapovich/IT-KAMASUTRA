@@ -10,3 +10,18 @@
 .contact {
     padding-left: 10px;
 }
+
+.editButton {
+
+}
+
+.editStyles{
+    padding: 7px 30px;
+    border-radius: 30px;
+    color: deeppink;
+    background-color: bisque;
+}
+.editStyles:hover{
+   background-color: deeppink;
+    color: black;
+}

@@ -6,7 +6,7 @@ import s from './ProfileInfo.module.css';
 const ProfileDataForm = ({handleSubmit, profile}) => {
     return <form onSubmit = {handleSubmit}>
 
-       <div><button>save</button></div>
+       <div><button className={s.editStyles}>Save</button></div>
 
     <div>
         <b>Full name:</b>
